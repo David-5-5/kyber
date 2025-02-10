@@ -66,7 +66,7 @@ const int16_t zetas[128] = {
 * Returns 16-bit integer congruent to a*b*R^{-1} mod q
 **************************************************/
 static int16_t fqmul(int16_t a, int16_t b) {
-  return montgomery_reduce((int32_t)a*b);
+  return montgomery_reduce((int32_t)a*b); // 蒙哥马利模乘
 }
 
 /*************************************************
@@ -114,7 +114,7 @@ void invntt(int16_t r[256]) {
       zeta = zetas[k--];
       for(j = start; j < start + len; j++) {
         t = r[j];
-        r[j] = barrett_reduce(t + r[j + len]);
+        r[j] = barrett_reduce(t + r[j + len]); // 巴雷特约减
         r[j + len] = r[j + len] - t;
         r[j + len] = fqmul(zeta, r[j + len]);
       }
