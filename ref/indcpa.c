@@ -229,11 +229,11 @@ void indcpa_keypair_derand(uint8_t pk[KYBER_INDCPA_PUBLICKEYBYTES],
 
   // matrix-vector multiplication
   for(i=0;i<KYBER_K;i++) {
-    polyvec_basemul_acc_montgomery(&pkpv.vec[i], &a[i], &skpv);
+    polyvec_basemul_acc_montgomery(&pkpv.vec[i], &a[i], &skpv);   // t = As + e
     poly_tomont(&pkpv.vec[i]);
   }
 
-  polyvec_add(&pkpv, &pkpv, &e);
+  polyvec_add(&pkpv, &pkpv, &e);        // + e
   polyvec_reduce(&pkpv);
 
   pack_sk(sk, &skpv);
