@@ -1,6 +1,7 @@
 CC ?= /usr/bin/cc
 CFLAGS += -Wall -Wextra -Wpedantic -Wmissing-prototypes -Wredundant-decls \
-  -Wshadow -Wpointer-arith -O3 -fomit-frame-pointer -z noexecstack
+  -Wshadow -Wpointer-arith -fomit-frame-pointer -z noexecstack \
+  -g -O0  # -g 生成调试符号，-O0 禁用优化
 NISTFLAGS += -Wno-unused-result -O3 -fomit-frame-pointer
 RM = /bin/rm
 

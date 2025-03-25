@@ -1,0 +1,14 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Debug Kyber Test",
+        "type": "cppdbg",
+        "request": "launch",
+        "program": "${workspaceFolder}/ref/test/test_kyber768",  // 根据实际输出调整
+        "args": [],
+        "cwd": "${workspaceFolder}/ref",
+        "preLaunchTask": "build in ref"    // 与 tasks.json 的 label 一致
+      }
+    ]
+  }
